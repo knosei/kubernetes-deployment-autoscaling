@@ -1,6 +1,5 @@
 # Kubernetes Deployment And Autoscaling
-
-## Project Overview
+## 📋 Project Overview
 
 This project demonstrates how to take a simple Node.js backend application and deploy it on a Kubernetes cluster running on **Amazon Elastic Kubernetes Service (EKS)**.
 
@@ -13,25 +12,22 @@ It walks through the full DevOps lifecycle:
 * Deploying the application using Kubernetes Deployments and Services
 * Exposing the application using NodePort networking
 
-The goal is to build a practical understanding of how Kubernetes manages containerized applications in a real cloud environment.
-
 ---
 
-## Architecture
+## 🏗️Architecture
 
 The system follows a standard Kubernetes deployment model on AWS:
 
-* Local machine → builds Docker image
-* Amazon ECR → stores container images
-* Amazon EKS → runs Kubernetes control plane
-* EC2 Worker Nodes → run application Pods
-* Kubernetes Service (NodePort) → exposes application externally
+1. **User** accessess the application endpoint.
+2. Container images are stored in **Amazon ECR**.
+3. **Amazon EKS** manages the **Kubernetes cluster**.
+4. **EC2 worker nodes** run application Pods pulled from **ECR**.
 
-📌 **Architecture Diagram:** (insert image here)
+![Architecture Diagram](architecture.png)
 
 ---
 
-## Technologies Used
+## 🛠️ Technologies Used
 
 * Node.js
 * Docker
@@ -46,19 +42,17 @@ The system follows a standard Kubernetes deployment model on AWS:
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
 ```
 
 project-3/
-│
 ├── app/                 # Node.js application
 │   ├── public/
 │   ├── src/
 │   ├── package.json
 │   ├── Dockerfile
 │   └── README.md
-│
 ├── k8s/                 # Kubernetes manifests
 │   ├── deployment.yaml
 │   └── service.yaml
@@ -66,10 +60,7 @@ project-3/
 └── README.md
 
 ```
-
----
-
-## Key Features
+## 🚀Key Features
 
 * Containerized Node.js backend application
 * Kubernetes Deployment managing multiple replicas
@@ -193,10 +184,15 @@ kubectl get services
 
 ### 7. Access the Application
 
-Find worker node public IP and NodePort:
+Confirm the application works internally using port forwarding:
 
 ```
-http://<NODE_PUBLIC_IP>:<NODE_PORT>
+kubectl port-forward deployment/k8s-demo-service 8080:3000
+```
+Access:
+
+```
+http://localhost:8080
 ```
 
 ---
@@ -221,7 +217,7 @@ http://<NODE_PUBLIC_IP>:<NODE_PORT>
 
 ---
 
-## Challenges Solved
+## 🏆 Challenges Solved
 
 * Bridging local development to cloud deployment
 * Understanding image registry requirements (ECR vs local Docker)
@@ -231,7 +227,7 @@ http://<NODE_PUBLIC_IP>:<NODE_PORT>
 
 ---
 
-## What I Learned
+## 💡 What I Learned
 
 * End-to-end Kubernetes deployment workflow on AWS
 * Difference between containerization and orchestration
@@ -250,8 +246,16 @@ http://<NODE_PUBLIC_IP>:<NODE_PORT>
 
 ---
 
-## Author
+## 🤝 Connect With Me
 
-Built as part of a DevOps learning project focused on Kubernetes and Amazon EKS.
+<p align="center">
+<a href="mailto:knokwaku99@gmail.com">
+<img src="https://img.shields.io/badge/EMAIL-KNOKWAKU99%40GMAIL.COM-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/>
+</a>
+
+<a href="https://www.linkedin.com/in/knosei/">
+<img src="https://img.shields.io/badge/LINKEDIN-KNOSEI%20-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+</a>
+</p>
 
 ---
