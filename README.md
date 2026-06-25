@@ -23,7 +23,7 @@ The system follows a standard Kubernetes deployment model on AWS:
 3. **Amazon EKS** manages the **Kubernetes cluster**.
 4. **EC2 worker nodes** run application Pods pulled from **ECR**.
 
-![Architecture Diagram](architecture.png)
+![Architecture Diagram](public/architecture.png)
 
 ---
 
@@ -142,13 +142,13 @@ eksctl create cluster \
   --node-type t3.medium \
   --nodes 2
 ```
-
+![create cluster](public/ekscreatecluster.png)
 Verify nodes:
 
 ```bash
 kubectl get nodes
 ```
-
+![get nodes](public/kubectlgetnodes.png)
 ---
 
 ### 5. Deploy Application to Kubernetes
@@ -170,7 +170,7 @@ Check pods:
 ```bash
 kubectl get pods
 ```
-
+![get pods](public/kubectlgetpods.png)
 ---
 
 ### 6. Expose Application with Service
@@ -179,7 +179,7 @@ kubectl get pods
 kubectl apply -f k8s/service.yaml
 kubectl get services
 ```
-
+![get services](public/kubectlgetservices.png)
 ---
 
 ### 7. Access the Application
@@ -194,7 +194,7 @@ Access:
 ```
 http://localhost:8080
 ```
-
+![Demo UI](public/DemoServicesUI.png)
 ---
 
 ## Networking Flow
