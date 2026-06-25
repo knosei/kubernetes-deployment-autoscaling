@@ -179,6 +179,7 @@ kubectl get pods
 kubectl apply -f k8s/service.yaml
 kubectl get services
 ```
+![kube apply](public/kubectlapply.png)
 ![get services](public/kubectlgetservices.png)
 ---
 
